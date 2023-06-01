@@ -1,11 +1,12 @@
-import { useFilebase } from "./Filebase";
+import { useFilebase } from "@/app/filebase/page";
+import { useApiResponse } from "../ApiResponseProvider";
 
 // List pinnings on Filebase
 export default function List() {
-  const { pinningEndpoint, accessToken, setApiResponse } = useFilebase();
-
+  const { apiEndpoint, accessToken } = useFilebase();
+  const { setApiResponse } = useApiResponse();
   const list = async () => {
-    const response = await fetch(`${pinningEndpoint}/pins`, {
+    const response = await fetch(`${apiEndpoint}/pins`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${accessToken}`,

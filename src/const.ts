@@ -1,27 +1,22 @@
-import FilebaseComponent from "./components/filebase/Filebase";
-
 export const PINNING_SERVICES = [
   {
     name: "filebase",
     website: "https://filebase.com",
     docsUrl:
       "https://docs.filebase.com/api-documentation/ipfs-pinning-service-api",
-    pinningEndpoint: "https://api.filebase.io/v1/ipfs",
     note: "Pinning APIs are available to paid customers",
     discontinued: false,
     supportsMultiplePins: false,
-    component: <FilebaseComponent serviceId="filebase" />,
+    pathname: "/filebase",
   },
   {
     name: "nft.storage",
     website: "https://nft.storage",
     docsUrl: "https://nft.storage/docs/how-to/pinning-service",
-    pinningEndpoint: "https://api.nft.storage/pins",
     note: "",
     discontinued: false,
     supportsMultiplePins: false,
-    actions: ["pin"],
-    component: <></>,
+    pathname: "/nft-storage",
   },
   {
     name: "4everland",
@@ -32,8 +27,7 @@ export const PINNING_SERVICES = [
     note: "",
     discontinued: false,
     supportsMultiplePins: true,
-    actions: ["pin"],
-    component: <></>,
+    pathname: "/4everland",
   },
   {
     name: "estuary",
@@ -43,8 +37,7 @@ export const PINNING_SERVICES = [
     note: "",
     discontinued: false,
     supportsMultiplePins: false,
-    actions: ["pin"],
-    component: <></>,
+    pathname: "/estuary",
   },
   {
     name: "web3.storage",
@@ -54,8 +47,7 @@ export const PINNING_SERVICES = [
     note: "",
     discontinued: false,
     supportsMultiplePins: false,
-    actions: ["pin"],
-    component: <></>,
+    pathname: "/web3-storage",
   },
   {
     name: "infura",
@@ -65,8 +57,7 @@ export const PINNING_SERVICES = [
     note: "",
     discontinued: false,
     supportsMultiplePins: false,
-    actions: ["pin"],
-    component: <></>,
+    pathname: "/infura",
   },
   {
     name: "dolpin",
@@ -76,8 +67,7 @@ export const PINNING_SERVICES = [
     note: "",
     discontinued: false,
     supportsMultiplePins: false,
-    actions: ["pin"],
-    component: <></>,
+    pathname: "/dolpin",
   },
   {
     name: "chainsafe",
@@ -87,8 +77,7 @@ export const PINNING_SERVICES = [
     note: "",
     discontinued: false,
     supportsMultiplePins: false,
-    actions: ["pin"],
-    component: <></>,
+    pathname: "/chainsafe",
   },
   {
     name: "pinata",
@@ -98,7 +87,6 @@ export const PINNING_SERVICES = [
     note: "",
     discontinued: false,
     supportsMultiplePins: false,
-    actions: ["pin"],
-    component: <></>,
+    pathname: "/pinata",
   },
 ] as const;

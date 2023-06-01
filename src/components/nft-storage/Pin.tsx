@@ -1,21 +1,22 @@
-import { useFilebase } from "@/app/filebase/page";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { useApiResponse } from "../ApiResponseProvider";
+import { useNftStorage } from "@/app/nft-storage/page";
 
 export default function Pin() {
   const cidRef = useRef<HTMLInputElement>(null);
   const labelRef = useRef<HTMLInputElement>(null);
-  const { apiEndpoint, accessToken } = useFilebase();
+  const { apiEndpoint, accessToken } = useNftStorage();
   const { setApiResponse } = useApiResponse();
-  
+
   const pin = async () => {
     if (!cidRef.current) return;
     const cid = cidRef.current.value;
     if (!labelRef.current) return;
     const name = labelRef.current.value;
-    const response = await fetch(`${apiEndpoint}/pins`, {
+    const response = await fetch(`${apiEndpoint}`, {
       method: "POST",
       headers: {
+        Accept: "*/*",
         "Content-Type": "application/json",
         Authorization: `Bearer ${accessToken}`,
       },

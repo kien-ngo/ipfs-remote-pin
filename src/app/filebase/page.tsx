@@ -1,34 +1,26 @@
-import { PINNING_SERVICES } from "@/const";
-import { useContext, useEffect, useState } from "react";
-import { createContext } from "react";
-import Pin from "./Pin";
-import List from "./List";
+"use client";
 
+import List from "@/components/filebase/List";
+import Pin from "@/components/filebase/Pin";
+
+import { createContext, useContext, useEffect, useState } from "react";
+const API_ENDPOINT = "https://api.filebase.io/v1/ipfs";
 type TFilebaseContext = {
   accessToken: string;
-  setApiResponse: Function;
-  pinningEndpoint: string;
+  apiEndpoint: string;
 };
 
 const FilebaseContext = createContext<TFilebaseContext>({
   accessToken: "",
-  setApiResponse: () => {},
-  pinningEndpoint: "",
+  apiEndpoint: "",
 });
 
 const actions = [
   { name: "Pin an object", component: <Pin /> },
   { name: "Get list of pins", component: <List /> },
 ];
-
-export default function FilebaseComponent({
-  serviceId,
-}: {
-  serviceId: (typeof PINNING_SERVICES)[number]["name"];
-}) {
-  const service = PINNING_SERVICES.find((item) => item.name === serviceId)!;
+export default function Page() {
   const [accessToken, setAccessToken] = useState<string>("");
-  const [apiResponse, setApiResponse] = useState<any>({});
   const keyName = "filebaseAccessToken";
 
   useEffect(() => {
@@ -42,7 +34,7 @@ export default function FilebaseComponent({
   };
 
   return (
-    <div className="flex flex-col mx-auto mt-20 max-w-[1200px] border p-4 w-full">
+    <div className="flex flex-col mx-auto mt-20 max-w-[1200px] p-4 w-full">
       <label htmlFor="">Filebase access token</label>
       <div className="flex flex-row flex-wrap gap-3">
         <input
@@ -59,25 +51,12 @@ export default function FilebaseComponent({
           Save
         </button>
       </div>
-      <div className="mt-10">
-        <span>API Response</span>
-        <span
-          className="text-red-500 underline cursor-pointer ml-4"
-          onClick={() => setApiResponse({})}
-        >
-          Clear
-        </span>
-      </div>
-      <pre className="bg-gray-600 overflow-auto max-h-[500px]">
-        {JSON.stringify(apiResponse, null, 2)}
-      </pre>
 
       <h1 className="text-3xl font-bold mt-10">Actions</h1>
       <FilebaseContext.Provider
         value={{
           accessToken,
-          setApiResponse,
-          pinningEndpoint: service.pinningEndpoint,
+          apiEndpoint: API_ENDPOINT,
         }}
       >
         {actions.map((action) => (
