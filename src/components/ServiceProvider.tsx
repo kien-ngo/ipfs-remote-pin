@@ -1,5 +1,4 @@
 import { PINNING_SERVICES } from "@/const";
-import { useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 
 export default function ServiceProvider() {
@@ -21,11 +20,15 @@ export default function ServiceProvider() {
         }}
       >
         <option value="">Select a service</option>
-        {PINNING_SERVICES.map((item) => (
-          <option key={item.name} value={item.pathname}>
-            {item.name}
-          </option>
-        ))}
+        {PINNING_SERVICES.map((item) =>
+          item.ready ? (
+            <option key={item.name} value={item.pathname}>
+              {item.name}
+            </option>
+          ) : (
+            <></>
+          )
+        )}
       </select>
       <br />
       {selectedService && (

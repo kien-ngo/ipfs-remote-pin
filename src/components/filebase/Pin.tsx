@@ -1,13 +1,14 @@
 import { useFilebase } from "@/app/filebase/page";
 import { useRef, useState } from "react";
 import { useApiResponse } from "../ApiResponseProvider";
+import { openModal } from "@/utils/modal";
 
 export default function Pin() {
   const cidRef = useRef<HTMLInputElement>(null);
   const labelRef = useRef<HTMLInputElement>(null);
   const { apiEndpoint, accessToken } = useFilebase();
   const { setApiResponse } = useApiResponse();
-  
+
   const pin = async () => {
     if (!cidRef.current) return;
     const cid = cidRef.current.value;
@@ -22,6 +23,7 @@ export default function Pin() {
       body: JSON.stringify({ cid, name }),
     }).then((r) => r.json());
     setApiResponse(response);
+    openModal("apiResponseModal");
   };
 
   return (

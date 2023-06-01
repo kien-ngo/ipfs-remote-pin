@@ -1,12 +1,12 @@
 import { useRef } from "react";
 import { useApiResponse } from "../ApiResponseProvider";
-import { useNftStorage } from "@/app/nft-storage/page";
+import { useEstuary } from "@/app/estuary/page";
 import { openModal } from "@/utils/modal";
 
 export default function Pin() {
   const cidRef = useRef<HTMLInputElement>(null);
   const labelRef = useRef<HTMLInputElement>(null);
-  const { apiEndpoint, accessToken } = useNftStorage();
+  const { apiEndpoint, accessToken } = useEstuary();
   const { setApiResponse } = useApiResponse();
 
   const pin = async () => {
@@ -17,7 +17,7 @@ export default function Pin() {
     const response = await fetch(`${apiEndpoint}`, {
       method: "POST",
       headers: {
-        Accept: "*/*",
+        Accept: "application/json",
         "Content-Type": "application/json",
         Authorization: `Bearer ${accessToken}`,
       },

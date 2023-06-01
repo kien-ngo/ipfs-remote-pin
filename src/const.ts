@@ -8,6 +8,7 @@ export const PINNING_SERVICES = [
     discontinued: false,
     supportsMultiplePins: false,
     pathname: "/filebase",
+    ready: true,
   },
   {
     name: "nft.storage",
@@ -17,6 +18,7 @@ export const PINNING_SERVICES = [
     discontinued: false,
     supportsMultiplePins: false,
     pathname: "/nft-storage",
+    ready: true,
   },
   {
     name: "4everland",
@@ -28,6 +30,7 @@ export const PINNING_SERVICES = [
     discontinued: false,
     supportsMultiplePins: true,
     pathname: "/4everland",
+    ready: false,
   },
   {
     name: "estuary",
@@ -38,6 +41,7 @@ export const PINNING_SERVICES = [
     discontinued: false,
     supportsMultiplePins: false,
     pathname: "/estuary",
+    ready: true,
   },
   {
     name: "web3.storage",
@@ -48,6 +52,7 @@ export const PINNING_SERVICES = [
     discontinued: false,
     supportsMultiplePins: false,
     pathname: "/web3-storage",
+    ready: false,
   },
   {
     name: "infura",
@@ -58,6 +63,7 @@ export const PINNING_SERVICES = [
     discontinued: false,
     supportsMultiplePins: false,
     pathname: "/infura",
+    ready: false,
   },
   {
     name: "dolpin",
@@ -68,6 +74,7 @@ export const PINNING_SERVICES = [
     discontinued: false,
     supportsMultiplePins: false,
     pathname: "/dolpin",
+    ready: false,
   },
   {
     name: "chainsafe",
@@ -78,6 +85,7 @@ export const PINNING_SERVICES = [
     discontinued: false,
     supportsMultiplePins: false,
     pathname: "/chainsafe",
+    ready: false,
   },
   {
     name: "pinata",
@@ -88,5 +96,6 @@ export const PINNING_SERVICES = [
     discontinued: false,
     supportsMultiplePins: false,
     pathname: "/pinata",
+    ready: false,
   },
 ] as const;

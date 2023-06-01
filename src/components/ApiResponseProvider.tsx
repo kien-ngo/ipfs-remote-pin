@@ -1,6 +1,6 @@
 import { openModal } from "@/utils/modal";
 import { ReactNode, createContext, useContext, useState } from "react";
-import { JsonView, darkStyles, defaultStyles } from "react-json-view-lite";
+import { JsonView, darkStyles } from "react-json-view-lite";
 
 type TApiResponseContext = {
   apiResponse: any;
@@ -24,7 +24,10 @@ export const ApiReponseProvider = ({ children }: { children: ReactNode }) => {
         View API Response
       </button>
       <dialog id="apiResponseModal" className="modal">
-        <form method="dialog" className="modal-box">
+        <form
+          method="dialog"
+          className="modal-box max-w-[90vw] max-h-[90vh] w-[900px] min-h-[500px]"
+        >
           <button
             // @ts-ignore
             htmlFor="apiResponseModal"
@@ -33,7 +36,7 @@ export const ApiReponseProvider = ({ children }: { children: ReactNode }) => {
             ✕
           </button>
           <h3 className="font-bold text-lg">API Response</h3>
-          <div className="w-full h-full border">
+          <div className="w-full h-full border border-gray-500 p-3">
             <JsonView
               data={apiResponse}
               shouldInitiallyExpand={(level) => true}
