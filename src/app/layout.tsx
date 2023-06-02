@@ -1,7 +1,6 @@
 "use client";
 import ServiceProvider from "@/components/ServiceProvider";
 import "./globals.css";
-import { ApiReponseProvider } from "@/components/ApiResponseProvider";
 
 export const metadata = {
   title: "Create Next App",
@@ -16,10 +15,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="flex flex-col min-h-[100vh]">
-        <ApiReponseProvider>
-          <ServiceProvider />
-          {children}
-        </ApiReponseProvider>
+        <ServiceProvider />
+        {children}
       </body>
     </html>
   );

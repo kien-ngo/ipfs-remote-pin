@@ -1,34 +1,31 @@
 import { PINNING_SERVICES } from "@/const";
-import { usePathname, useRouter } from "next/navigation";
+import RemovePinProvider from "./RemotePinContext";
+import { useState } from "react";
 
 export default function ServiceProvider() {
-  const router = useRouter();
-  const pathname = usePathname();
-  const selectedService = PINNING_SERVICES.find(
-    (item) => item.pathname === pathname
-  );
-  console.log({ pathname });
+  const [selectedIndex, setSelectedIndex] = useState<number>(-1);
+  const selectedService = PINNING_SERVICES[selectedIndex];
   return (
     <>
       <div className="text-center mt-10">Select a service</div>
       <select
-        defaultValue={pathname}
         className="w-fit px-5 mt-4 py-3 mx-auto"
         onChange={(e) => {
-          const pathname = e.target.value;
-          if (pathname) router.push(pathname);
+          const val = Number(e.target.value);
+          if (isNaN(val) || val < 0) return;
+          setSelectedIndex(val);
         }}
       >
         <option value="">Select a service</option>
-        {PINNING_SERVICES.map((item) =>
-          item.ready ? (
-            <option key={item.name} value={item.pathname}>
-              {item.name}
-            </option>
-          ) : (
-            <></>
-          )
-        )}
+        {PINNING_SERVICES.map((item, index) => (
+          <option
+            key={item.name}
+            value={index}
+            style={{ display: item.ready ? "" : "none" }}
+          >
+            {item.name}
+          </option>
+        ))}
       </select>
       <br />
       {selectedService && (
@@ -48,6 +45,9 @@ export default function ServiceProvider() {
           {selectedService.note && (
             <div className="text-center">*{selectedService.note}</div>
           )}
+          <RemovePinProvider service={selectedService}>
+            <></>
+          </RemovePinProvider>
         </>
       )}
     </>

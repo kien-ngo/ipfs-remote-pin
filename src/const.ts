@@ -1,6 +1,6 @@
 export const PINNING_SERVICES = [
   {
-    name: "filebase",
+    name: "Filebase",
     website: "https://filebase.com",
     docsUrl:
       "https://docs.filebase.com/api-documentation/ipfs-pinning-service-api",
@@ -9,9 +9,11 @@ export const PINNING_SERVICES = [
     supportsMultiplePins: false,
     pathname: "/filebase",
     ready: true,
+    apiEndpoint: "https://api.filebase.io/v1/ipfs",
+    keyName: "filebaseAccessToken",
   },
   {
-    name: "nft.storage",
+    name: "NFT.Storage",
     website: "https://nft.storage",
     docsUrl: "https://nft.storage/docs/how-to/pinning-service",
     note: "",
@@ -19,6 +21,8 @@ export const PINNING_SERVICES = [
     supportsMultiplePins: false,
     pathname: "/nft-storage",
     ready: true,
+    apiEndpoint: "https://api.nft.storage",
+    keyName: "nftStorageAccessToken",
   },
   {
     name: "4everland",
@@ -30,10 +34,12 @@ export const PINNING_SERVICES = [
     discontinued: false,
     supportsMultiplePins: true,
     pathname: "/4everland",
-    ready: false,
+    ready: true,
+    apiEndpoint: "https://api.4everland.dev",
+    keyName: "4verlandAccessToken",
   },
   {
-    name: "estuary",
+    name: "Estuary",
     website: "https://estuary.tech",
     docsUrl: "https://docs.estuary.tech/api/add-and-pin-object",
     pinningEndpoint: "https://api.estuary.tech",
@@ -42,17 +48,21 @@ export const PINNING_SERVICES = [
     supportsMultiplePins: false,
     pathname: "/estuary",
     ready: true,
+    apiEndpoint: "https://api.estuary.tech/pinning",
+    keyName: "estuaryAccessToken",
   },
   {
     name: "web3.storage",
     website: "https://web3.storage",
     docsUrl: "https://web3.storage/docs/how-tos/pinning-services-api/",
-    pinningEndpoint: "https://api.web3.storage/pins",
+    pinningEndpoint: "https://api.web3.storage",
     note: "",
     discontinued: false,
     supportsMultiplePins: false,
     pathname: "/web3-storage",
     ready: false,
+    apiEndpoint: "",
+    keyName: "web3StorageAccessToken",
   },
   {
     name: "infura",
@@ -64,6 +74,8 @@ export const PINNING_SERVICES = [
     supportsMultiplePins: false,
     pathname: "/infura",
     ready: false,
+    apiEndpoint: "",
+    keyName: "infuraAccessToken",
   },
   {
     name: "dolpin",
@@ -75,6 +87,8 @@ export const PINNING_SERVICES = [
     supportsMultiplePins: false,
     pathname: "/dolpin",
     ready: false,
+    apiEndpoint: "",
+    keyName: "dolpinAccessToken",
   },
   {
     name: "chainsafe",
@@ -86,6 +100,8 @@ export const PINNING_SERVICES = [
     supportsMultiplePins: false,
     pathname: "/chainsafe",
     ready: false,
+    apiEndpoint: "",
+    keyName: "chainsafeAccessToken",
   },
   {
     name: "pinata",
@@ -97,5 +113,7 @@ export const PINNING_SERVICES = [
     supportsMultiplePins: false,
     pathname: "/pinata",
     ready: false,
+    apiEndpoint: "",
+    keyName: "pinataAccessToken",
   },
 ] as const;

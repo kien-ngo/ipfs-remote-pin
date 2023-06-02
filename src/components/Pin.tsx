@@ -1,12 +1,16 @@
 import { useRef } from "react";
-import { useApiResponse } from "../ApiResponseProvider";
-import { useEstuary } from "@/app/estuary/page";
 import { openModal } from "@/utils/modal";
+import { useApiResponse } from "./ApiResponseProvider";
 
-export default function Pin() {
+export default function Pin({
+  apiEndpoint,
+  accessToken,
+}: {
+  apiEndpoint: string;
+  accessToken: string;
+}) {
   const cidRef = useRef<HTMLInputElement>(null);
   const labelRef = useRef<HTMLInputElement>(null);
-  const { apiEndpoint, accessToken } = useEstuary();
   const { setApiResponse } = useApiResponse();
 
   const pin = async () => {
@@ -14,7 +18,7 @@ export default function Pin() {
     const cid = cidRef.current.value;
     if (!labelRef.current) return;
     const name = labelRef.current.value;
-    const response = await fetch(`${apiEndpoint}`, {
+    const response = await fetch(`${apiEndpoint}/pins`, {
       method: "POST",
       headers: {
         Accept: "application/json",
