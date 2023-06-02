@@ -112,8 +112,8 @@ export const PINNING_SERVICES = [
     discontinued: false,
     supportsMultiplePins: false,
     pathname: "/pinata",
-    ready: false,
-    apiEndpoint: "",
+    ready: true,
+    apiEndpoint: "https://api.pinata.cloud/psa",
     keyName: "pinataAccessToken",
   },
 ] as const;
