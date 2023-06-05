@@ -14,14 +14,18 @@ export default function RemovePinProvider({
   const [accessToken, setAccessToken] = useState<string>("");
 
   useEffect(() => {
-    const _accessToken = window.localStorage.getItem(service.keyName);
-    console.log({ _accessToken, keyName: service.keyName });
+    const keys = window.localStorage.getItem("ipfsRemotePinKeys");
+    if (!keys) return;
+    const _accessToken = JSON.parse(keys)[service.keyName];
     setAccessToken(_accessToken ?? "");
   }, [service]);
 
   const saveAccessTokenToLocalStorage = () => {
-    window.localStorage.setItem(service.keyName, accessToken);
-    alert(`${service.name} Access token saved to localStorage`);
+    const keys = window.localStorage.getItem("ipfsRemotePinKeys");
+    const data = keys ? JSON.parse(keys) : {};
+    data[service.keyName] = accessToken;
+    window.localStorage.setItem("ipfsRemotePinKeys", JSON.stringify(data));
+    alert(`${service.name} key(s) saved to localStorage`);
   };
 
   return (
