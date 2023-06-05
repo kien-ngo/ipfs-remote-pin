@@ -26,11 +26,15 @@ export default function RemovePinProvider({
 
   return (
     <div className="flex flex-col mx-auto mt-20 max-w-[1200px] p-4 w-full">
-      <div className="text-center">{service.name} API key</div>
+      <div className="text-center">{service.inputLabel}</div>
       <div className="flex flex-row flex-wrap gap-3 justify-center mx-auto">
         <input
           type="text"
-          placeholder={`${service.name} API Key (Access Token)`}
+          placeholder={
+            service.inputPlaceholder
+              ? service.inputPlaceholder
+              : `${service.name} API Key (Access Token)`
+          }
           className="px-4 py-2 lg:min-w-[650px]"
           value={accessToken ?? ""}
           onChange={(e) => setAccessToken(e.target.value)}
