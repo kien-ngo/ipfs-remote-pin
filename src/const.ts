@@ -152,4 +152,18 @@ export const PINNING_SERVICES: TPinningService[] = [
     psaCompliant: true,
     inputLabel: "Pinata JWT",
   },
+  {
+    name: "crust",
+    website: "https://crust.network",
+    docsUrl: "https://wiki.crust.network/docs/en/buildFileStoringWithGWDemo",
+    note: "",
+    discontinued: false,
+    supportsMultiplePins: false,
+    pathname: "/crust",
+    ready: true,
+    apiEndpoint: "https://pin.crustcode.com/psa",
+    keyName: "crustAccessToken",
+    psaCompliant: true,
+    inputLabel: "Crust Access Token",
+  },
 ];
