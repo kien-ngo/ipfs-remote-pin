@@ -45,6 +45,11 @@ export default function ServiceProvider() {
           {selectedService.note && (
             <div className="text-center">*{selectedService.note}</div>
           )}
+          {selectedService.discontinued && (
+            <div className="text-center text-red-500">
+              Warning: This service has been discontinued
+            </div>
+          )}
           <RemovePinProvider service={selectedService}>
             <></>
           </RemovePinProvider>

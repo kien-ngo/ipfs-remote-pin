@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-
+/**
+ * The owner of eternum.io has decided to no longer run the service. Please use other alternatives
+ */
 export async function POST(req: NextRequest) {
   const authHeader = req.headers.get("authorization");
   if (!authHeader)

@@ -166,4 +166,18 @@ export const PINNING_SERVICES: TPinningService[] = [
     psaCompliant: true,
     inputLabel: "Crust Access Token",
   },
+  {
+    name: "eternum",
+    website: "https://eternum.io",
+    docsUrl: "https://www.eternum.io/help/api",
+    note: "y",
+    discontinued: true,
+    supportsMultiplePins: false,
+    pathname: "/eternum",
+    ready: true,
+    apiEndpoint: "/api/eternum",
+    keyName: "eternumAccessToken",
+    psaCompliant: false,
+    inputLabel: "Eternum Access Token",
+  },
 ];

@@ -9,3 +9,4 @@
 - [ ] Chainsafe.io
 - [x] Pinata
 - [x] Crust.network
+- [x] Eternum.io
