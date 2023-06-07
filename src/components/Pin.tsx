@@ -17,7 +17,7 @@ export default function Pin({
     if (!cidRef.current) return;
     const cid = cidRef.current.value;
     if (!labelRef.current) return;
-    const name = labelRef.current.value;
+    const name = labelRef.current.value ?? "";
     const response = await fetch(`${apiEndpoint}/pins`, {
       method: "POST",
       headers: {
