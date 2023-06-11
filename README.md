@@ -7,9 +7,10 @@
 - [x] Estuary.tech
 - [x] Web3.Storage
 - [x] Infura.io
-- [ ] Dolpin.io
-- [ ] Chainsafe.io
 - [x] Pinata
 - [x] Crust.network
 - [x] Eternum.io
+- [x] Blockfrost.io
 - [x] Spheron.network
+- [ ] Dolpin.io
+- [ ] Chainsafe.io
