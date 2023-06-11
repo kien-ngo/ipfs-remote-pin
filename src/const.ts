@@ -48,6 +48,7 @@ export const PINNING_SERVICES: TPinningService[] = [
     keyName: "nftStorageAccessToken",
     psaCompliant: true,
     inputLabel: "NFT.Storage API Key",
+    inputPlaceholder: "eyJhbGciOi...",
   },
   {
     name: "4everland",
@@ -91,6 +92,7 @@ export const PINNING_SERVICES: TPinningService[] = [
     keyName: "web3StorageAccessToken",
     psaCompliant: true,
     inputLabel: "Web3.Storage API Token",
+    inputPlaceholder: "eyJhbGciOi...",
   },
   {
     name: "infura",
@@ -148,6 +150,7 @@ export const PINNING_SERVICES: TPinningService[] = [
     keyName: "pinataAccessToken",
     psaCompliant: true,
     inputLabel: "Pinata JWT",
+    inputPlaceholder: "eyJhbGciOi...",
   },
   {
     name: "crust",
@@ -191,5 +194,20 @@ export const PINNING_SERVICES: TPinningService[] = [
     psaCompliant: false,
     inputLabel: "Blockfrost Project ID",
     inputPlaceholder: "ipfs...",
+  },
+  {
+    name: "spheron",
+    website: "https://spheron.network",
+    docsUrl: "https://docs.spheron.network/sdk/storage",
+    note: "",
+    discontinued: false,
+    supportsMultiplePins: false,
+    pathname: "/spheron",
+    ready: true,
+    apiEndpoint: "/api/spheron",
+    keyName: "spheronAccessToken",
+    psaCompliant: false,
+    inputLabel: "Spheron Access Token",
+    inputPlaceholder: "eyJhbGciOi...",
   },
 ];

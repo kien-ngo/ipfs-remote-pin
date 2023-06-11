@@ -1,3 +1,5 @@
+# # A unified interface for pinning your CIDs to multiple IPFS Pinning Services
+
 # # Supported Services
 - [x] Filebase.com
 - [x] NFT.Storage
@@ -10,3 +12,4 @@
 - [x] Pinata
 - [x] Crust.network
 - [x] Eternum.io
+- [x] Spheron.network
