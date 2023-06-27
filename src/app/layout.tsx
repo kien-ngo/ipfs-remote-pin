@@ -13,8 +13,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" style={{fontFamily: 'monospace', fontSize: '18px'}}>
-      <body className="flex flex-col min-h-[100vh]">
+    <html lang="en" style={{fontFamily: 'san-serif', fontSize: '18px'}}>
+      <body className="flex flex-col min-h-[100vh] overflow-y-scroll">
         <ServiceProvider />
         {children}
       </body>

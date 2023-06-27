@@ -1,17 +1,16 @@
-import { ReactNode, useEffect, useState } from "react";
-const Pin = dynamic(() => import("./Pin"), { ssr: false });
+import { useEffect, useRef, useState } from "react";
 import { PINNING_SERVICES } from "@/const";
-import { ApiReponseProvider } from "./ApiResponseProvider";
-import dynamic from "next/dynamic";
 
 export default function RemovePinProvider({
   service,
-  children,
 }: {
   service: (typeof PINNING_SERVICES)[number];
-  children: ReactNode;
 }) {
   const [accessToken, setAccessToken] = useState<string>("");
+  const [apiResponse, setApiResponse] = useState<any>({});
+
+  const cidRef = useRef<HTMLInputElement>(null);
+  const labelRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     const keys = window.localStorage.getItem("ipfsRemotePinKeys");
@@ -28,40 +27,130 @@ export default function RemovePinProvider({
     alert(`${service.name} key(s) saved to localStorage`);
   };
 
+  const pin = async () => {
+    if (!cidRef.current) return;
+    const cid = cidRef.current.value;
+    if (!labelRef.current) return;
+    const name = labelRef.current.value ?? "";
+    const response = await fetch(`${service.apiEndpoint}/pins`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${accessToken}`,
+      },
+      body: JSON.stringify({ cid, name }),
+    }).then((r) => r.json());
+  };
+
   return (
-    <div className="flex flex-col mx-auto mt-20 max-w-[1200px] p-4 w-full">
-      <div className="text-center">{service.inputLabel}</div>
-      <div className="flex flex-row flex-wrap gap-3 justify-center mx-auto">
+    <>
+      <div className="mb-4">
+        <label
+          htmlFor="apiKey"
+          className="block text-gray-700 font-semibold mb-1"
+        >
+          API Key
+        </label>
+        <div className="flex flex-row gap-2">
+          <input
+            type="text"
+            id="apiKey"
+            className="w-full border border-gray-300 rounded px-3 py-2"
+            required
+            placeholder={
+              service.inputPlaceholder
+                ? service.inputPlaceholder
+                : `${service.name} API Key (Access Token)`
+            }
+            value={accessToken ?? ""}
+            onChange={(e) => setAccessToken(e.target.value)}
+          />
+          <button className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-1 px-4 rounded">
+            Save
+          </button>
+        </div>
+        <span className="text-sm sm:text-xs">
+          This app does not collect your keys. View{" "}
+          <a
+            className="underline"
+            target="_blank"
+            href="https://github.com/kienngo98/ipfs-remote-pin"
+          >
+            source code
+          </a>
+        </span>
+      </div>
+      <hr />
+      <br />
+      <div className="mb-4">
+        <label htmlFor="cid" className="block text-gray-700 font-semibold mb-1">
+          CID <span className="text-red-500 font-bold">*</span>
+        </label>
         <input
           type="text"
-          placeholder={
-            service.inputPlaceholder
-              ? service.inputPlaceholder
-              : `${service.name} API Key (Access Token)`
-          }
-          className="px-4 py-2 lg:min-w-[650px]"
-          value={accessToken ?? ""}
-          onChange={(e) => setAccessToken(e.target.value)}
+          ref={cidRef}
+          id="cid"
+          className="w-full border border-gray-300 rounded px-3 py-2"
+          placeholder="Enter the CID"
+          required
         />
-        <button
-          className="border px-3 hover:bg-white hover:text-black duration-100"
-          onClick={saveAccessTokenToLocalStorage}
-        >
-          Save
-        </button>
+        <span className="text-sm sm:text-xs">
+          For example:{" "}
+          <a
+            className="underline"
+            target="_blank"
+            href="https://ipfs.io/ipfs/QmUy4jh5mGNZvLkjies1RWM4YuvJh5o2FYopNPVYwrRVGV"
+          >
+            QmUy4jh5mGNZvLkjies1RWM4YuvJh5o2FYopNPVYwrRVGV
+          </a>
+        </span>
       </div>
-
-      <h1 className="text-3xl font-bold mt-10">Actions</h1>
-
-      <ApiReponseProvider>
-        <details className="mt-4">
-          <summary className="cursor-pointer">Pin an object</summary>
-          <div className="flex flex-col ml-5 mt-2 border border-gray-400">
-            <Pin apiEndpoint={service.apiEndpoint} accessToken={accessToken} />
-          </div>
-        </details>
-        {children}
-      </ApiReponseProvider>
-    </div>
+      <div className="mb-4">
+        <label
+          htmlFor="name"
+          className="block text-gray-700 font-semibold mb-1"
+        >
+          Name (optional)
+        </label>
+        <input
+          type="text"
+          id="name"
+          className="w-full border border-gray-300 rounded px-3 py-2"
+          placeholder="Label for the CID"
+          ref={labelRef}
+          required
+        />
+      </div>
+      <button
+        onClick={pin}
+        className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
+      >
+        Pin CID
+      </button>
+      <details className="mt-4" open>
+        <summary className="font-semibold flex flex-row justify-between">
+          <span>API Response</span>{" "}
+          <span className="flex flex-row gap-3">
+            <button
+              onClick={async () => {
+                await window.navigator.clipboard.writeText(
+                  JSON.stringify(apiResponse)
+                );
+                alert("Copied!");
+              }}
+            >
+              Copy
+            </button>
+            <button className="text-red-500" onClick={() => setApiResponse({})}>
+              Clear
+            </button>
+          </span>
+        </summary>
+        <pre className="bg-gray-100 p-4 overflow-auto">
+          {JSON.stringify(apiResponse, null, 2)}
+        </pre>
+      </details>
+    </>
   );
 }
