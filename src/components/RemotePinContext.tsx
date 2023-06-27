@@ -32,6 +32,7 @@ export default function RemovePinProvider({
     const cid = cidRef.current.value;
     if (!labelRef.current) return;
     const name = labelRef.current.value ?? "";
+    setApiResponse({message: 'Making request...'})
     const response = await fetch(`${service.apiEndpoint}/pins`, {
       method: "POST",
       headers: {
@@ -41,6 +42,7 @@ export default function RemovePinProvider({
       },
       body: JSON.stringify({ cid, name }),
     }).then((r) => r.json());
+    setApiResponse(response);
   };
 
   return (
@@ -66,7 +68,10 @@ export default function RemovePinProvider({
             value={accessToken ?? ""}
             onChange={(e) => setAccessToken(e.target.value)}
           />
-          <button className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-1 px-4 rounded">
+          <button
+            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-1 px-4 rounded"
+            onClick={saveAccessTokenToLocalStorage}
+          >
             Save
           </button>
         </div>

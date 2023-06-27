@@ -42,7 +42,7 @@ export default function ServiceProvider() {
         {selectedService && (
           <>
             <div className="mb-4">
-              <h2 className="text-xl font-semibold mb-2">
+              <h2 className="text-xl font-semibold mb-2 ">
                 {selectedService.name}
               </h2>
               <p className="text-gray-600 mb-4">
