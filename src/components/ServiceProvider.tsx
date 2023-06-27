@@ -7,41 +7,36 @@ export default function ServiceProvider() {
   const selectedService = PINNING_SERVICES[selectedIndex];
   return (
     <>
-      <div className="max-w-md mx-auto px-1 text-3xl mt-6 text-center lg:w-[700] md:w-[700] text-white">
+      <div className="max-w-md mx-auto px-1 text-3xl mt-6 text-center lg:w-[700px] md:w-[700px] text-white">
         One single interface for pinning CIDs to remote pinning services
       </div>
-      <div className="max-w-md mx-auto my-4 p-4 bg-white rounded shadow lg:w-[700] md:w-[700]">
-        <div className="mb-4">
-          <label
-            htmlFor="pinningService"
-            className="block font-semibold mb-1"
-          >
-            Select Pinning Service
-          </label>
-          <select
-            id="pinningService"
-            className="w-full border border-gray-300 rounded px-3 py-2"
-            onChange={(e) => {
-              const val = Number(e.target.value);
-              if (isNaN(val) || val < 0) return;
-              setSelectedIndex(val);
-            }}
-          >
-            <option value="">Select a service</option>
-            {PINNING_SERVICES.map((item, index) => (
-              <option
-                key={item.name}
-                value={index}
-                style={{ display: item.ready ? "" : "none" }}
-              >
-                {item.name}
-              </option>
-            ))}
-          </select>
-        </div>
+      <div className="max-w-md mx-auto my-4 p-4 bg-white rounded shadow lg:w-[700px] md:w-[700px]">
+        <label htmlFor="pinningService" className="block font-semibold mb-1">
+          Select Pinning Service
+        </label>
+        <select
+          id="pinningService"
+          className="w-full border border-gray-300 rounded px-3 py-2"
+          onChange={(e) => {
+            const val = Number(e.target.value);
+            if (isNaN(val) || val < 0) return;
+            setSelectedIndex(val);
+          }}
+        >
+          <option value="">Select a service</option>
+          {PINNING_SERVICES.map((item, index) => (
+            <option
+              key={item.name}
+              value={index}
+              style={{ display: item.ready ? "" : "none" }}
+            >
+              {item.name}
+            </option>
+          ))}
+        </select>
         {selectedService && (
           <>
-            <div className="mb-4">
+            <div className="mb-4 mt-2">
               <h2 className="text-xl font-semibold mb-2 ">
                 {selectedService.name}
               </h2>
