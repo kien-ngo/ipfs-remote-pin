@@ -14,3 +14,11 @@
 - [x] Spheron.network
 - [ ] Dolpin.io
 - [ ] Chainsafe.io
+- [ ] Lighthouse.storage
+- [ ] Photon.storage
+- [ ] Nirvanalabs.io
+- [ ] Fleek.xyz
+- [ ] Storj.io
+- [ ] Fogworks.io
+- [ ] Fission.codes
+- [ ] Aleph.im - https://account.aleph.im/#/
