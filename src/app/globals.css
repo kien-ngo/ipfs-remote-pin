@@ -3,9 +3,13 @@
 @tailwind utilities;
 
 body {
-
+  color: black;
 }
 
+input,
+select {
+  color: white;
+}
 a {
-  color: rgb(50, 86, 204)
+  color: rgb(50, 86, 204);
 }
