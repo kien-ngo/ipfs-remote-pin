@@ -1,6 +1,7 @@
 # # A unified interface for pinning your CIDs to multiple IPFS Pinning Services
 
-![Screenshot_2023-06-27_07-30-04](https://github.com/kienngo98/ipfs-remote-pin/assets/26052673/4044be60-55ef-4cc3-820a-28991670a20b)
+![image](https://github.com/kienngo98/ipfs-remote-pin/assets/26052673/d672517b-874c-479b-8401-cc17ee0a4b3d)
+
 
 
 # # Supported Services
@@ -15,7 +16,7 @@
 - [x] Eternum.io
 - [x] Blockfrost.io
 - [x] Spheron.network
-- [ ] Dolpin.io
+- [x] Dolpin.io
 - [ ] Chainsafe.io
 - [ ] Lighthouse.storage
 - [ ] Photon.storage
