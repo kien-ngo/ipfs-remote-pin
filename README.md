@@ -18,7 +18,7 @@
 - [x] Spheron.network
 - [x] Dolpin.io
 - [x] Scaleway.com (Un-tested - I didn't want to enter my credit card info :< )
-- [ ] Chainsafe.io
+- [ ] Chainsafe.io (They have the API but it's CORS restricted)
 - [ ] Lighthouse.storage - No option to pin using CID
 - [ ] Photon.storage - N/A
 - [ ] Nirvanalabs.io - No option to pin using CID
