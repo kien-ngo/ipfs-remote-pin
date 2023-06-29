@@ -13,16 +13,18 @@
 - [x] Infura.io
 - [x] Pinata
 - [x] Crust.network
-- [x] Eternum.io
+- [x] Eternum.io (Un-tested - Also this service's been discontinued, you can no longer pin content)
 - [x] Blockfrost.io
 - [x] Spheron.network
 - [x] Dolpin.io
+- [x] Scaleway.com (Un-tested - I didn't want to enter my credit card info :< )
 - [ ] Chainsafe.io
-- [ ] Lighthouse.storage
-- [ ] Photon.storage
-- [ ] Nirvanalabs.io
+- [ ] Lighthouse.storage - No option to pin using CID
+- [ ] Photon.storage - N/A
+- [ ] Nirvanalabs.io - No option to pin using CID
 - [ ] Fleek.xyz
-- [ ] Storj.io
+- [ ] Storj.io - Can't access their Beta program
 - [ ] Fogworks.io
 - [ ] Fission.codes
-- [ ] Aleph.im - https://account.aleph.im/#/
+- [ ] Aleph.im - The website doesn't seem to work
+- [ ] Kriptonio.com - No option to pin using CID

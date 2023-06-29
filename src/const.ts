@@ -5,18 +5,13 @@ type TPinningService = {
   note: string;
   discontinued: boolean; // Whether a business is still running or not
   supportsMultiplePins: boolean; // Some services can take in an array of CIDs
-  pathname: string;
+  pathname?: string;
   ready: boolean; // Whether the service is supported by this app or not
   apiEndpoint: string;
   keyName: string; // key as in "key-value" for localStorage
   psaCompliant: boolean; // Wheher the service's APIs are fully compliant with the IPFS PSA requirements
   inputLabel: string;
   inputPlaceholder?: string;
-};
-
-type TCredential = {
-  label: string;
-  keyName: string;
 };
 
 export const PINNING_SERVICES: TPinningService[] = [
@@ -28,7 +23,6 @@ export const PINNING_SERVICES: TPinningService[] = [
     note: "Pinning APIs are available to paid customers",
     discontinued: false,
     supportsMultiplePins: false,
-    pathname: "/filebase",
     ready: true,
     apiEndpoint: "https://api.filebase.io/v1/ipfs",
     keyName: "filebaseAccessToken",
@@ -42,7 +36,6 @@ export const PINNING_SERVICES: TPinningService[] = [
     note: "",
     discontinued: false,
     supportsMultiplePins: false,
-    pathname: "/nft-storage",
     ready: true,
     apiEndpoint: "https://api.nft.storage",
     keyName: "nftStorageAccessToken",
@@ -58,7 +51,6 @@ export const PINNING_SERVICES: TPinningService[] = [
     note: "",
     discontinued: false,
     supportsMultiplePins: true,
-    pathname: "/4everland",
     ready: true,
     apiEndpoint: "https://api.4everland.dev",
     keyName: "4verlandAccessToken",
@@ -72,7 +64,6 @@ export const PINNING_SERVICES: TPinningService[] = [
     note: "",
     discontinued: false,
     supportsMultiplePins: false,
-    pathname: "/estuary",
     ready: true,
     apiEndpoint: "https://api.estuary.tech/pinning",
     keyName: "estuaryAccessToken",
@@ -86,7 +77,6 @@ export const PINNING_SERVICES: TPinningService[] = [
     note: "web3.storage's Pinning Service API is not to be used for ongoing production traffic, but rather for one-time migrations",
     discontinued: false,
     supportsMultiplePins: false,
-    pathname: "/web3-storage",
     ready: true,
     apiEndpoint: "https://api.web3.storage",
     keyName: "web3StorageAccessToken",
@@ -101,7 +91,6 @@ export const PINNING_SERVICES: TPinningService[] = [
     note: "As of June 5th 2023, the pin api only accept cid and not its associate name/label",
     discontinued: false,
     supportsMultiplePins: false,
-    pathname: "/infura",
     ready: true,
     apiEndpoint: "/api/infura",
     keyName: "infuraAccessToken",
@@ -116,7 +105,6 @@ export const PINNING_SERVICES: TPinningService[] = [
     note: "",
     discontinued: false,
     supportsMultiplePins: false,
-    pathname: "/dolpin",
     ready: true,
     apiEndpoint: "/api/dolpin",
     keyName: "dolpinAccessToken",
@@ -131,7 +119,6 @@ export const PINNING_SERVICES: TPinningService[] = [
     note: "",
     discontinued: false,
     supportsMultiplePins: false,
-    pathname: "/chainsafe",
     ready: false,
     apiEndpoint: "",
     keyName: "chainsafeAccessToken",
@@ -145,7 +132,6 @@ export const PINNING_SERVICES: TPinningService[] = [
     note: "",
     discontinued: false,
     supportsMultiplePins: false,
-    pathname: "/pinata",
     ready: true,
     apiEndpoint: "https://api.pinata.cloud/psa",
     keyName: "pinataAccessToken",
@@ -160,7 +146,6 @@ export const PINNING_SERVICES: TPinningService[] = [
     note: "",
     discontinued: false,
     supportsMultiplePins: false,
-    pathname: "/crust",
     ready: true,
     apiEndpoint: "https://pin.crustcode.com/psa",
     keyName: "crustAccessToken",
@@ -174,7 +159,6 @@ export const PINNING_SERVICES: TPinningService[] = [
     note: "",
     discontinued: true,
     supportsMultiplePins: false,
-    pathname: "/eternum",
     ready: true,
     apiEndpoint: "/api/eternum",
     keyName: "eternumAccessToken",
@@ -188,7 +172,6 @@ export const PINNING_SERVICES: TPinningService[] = [
     note: "",
     discontinued: false,
     supportsMultiplePins: false,
-    pathname: "/blockfrost",
     ready: true,
     apiEndpoint: "/api/blockfrost",
     keyName: "blockforstProjectId",
@@ -203,12 +186,25 @@ export const PINNING_SERVICES: TPinningService[] = [
     note: "",
     discontinued: false,
     supportsMultiplePins: false,
-    pathname: "/spheron",
     ready: true,
     apiEndpoint: "/api/spheron",
     keyName: "spheronAccessToken",
     psaCompliant: false,
     inputLabel: "Spheron Access Token",
     inputPlaceholder: "eyJhbGciOi...",
+  },
+  {
+    name: "Scaleway.com",
+    website: "https://sacleway.com",
+    docsUrl: "https://scaleway.com/en/docs/labs/ipfs/api-cli/ipfs-operations",
+    note: "",
+    discontinued: false,
+    supportsMultiplePins: false,
+    ready: true,
+    apiEndpoint: "/api/scaleway",
+    keyName: "scalewayAuthToken",
+    psaCompliant: false,
+    inputLabel: "Scaleway Auth Token",
+    inputPlaceholder: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   },
 ];

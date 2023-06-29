@@ -55,7 +55,6 @@ export default function ServiceProvider() {
                 >
                   {selectedService.website.replace(/^https?:\/\//, "")}
                 </a>
-                .
               </p>
               <p className="mb-4">
                 Docs:{" "}
@@ -67,8 +66,12 @@ export default function ServiceProvider() {
                 >
                   {selectedService.docsUrl.replace(/^https?:\/\//, "")}
                 </a>
-                .
               </p>
+              {selectedService.discontinued && (
+                <div className="text-center text-red-500">
+                  **This service has been discontinued**
+                </div>
+              )}
             </div>
             <RemovePinProvider service={selectedService}></RemovePinProvider>
           </>
