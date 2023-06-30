@@ -3,7 +3,6 @@
 ![image](https://github.com/kienngo98/ipfs-remote-pin/assets/26052673/d672517b-874c-479b-8401-cc17ee0a4b3d)
 
 
-
 # Supported Services
 - [x] Filebase.com
 - [x] NFT.Storage
@@ -28,3 +27,5 @@
 - [ ] Fission.codes
 - [ ] Aleph.im - The website doesn't seem to work
 - [ ] Kriptonio.com - No option to pin using CID
+- [ ] Myraah.com - No option to pin using CID
+- [ ] Multichain.storage - No option to pin using CID
