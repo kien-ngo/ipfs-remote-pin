@@ -29,3 +29,4 @@
 - [ ] Kriptonio.com - No option to pin using CID
 - [ ] Myraah.com - No option to pin using CID
 - [ ] Multichain.storage - No option to pin using CID
+- [ ] Chainstack - https://chainstack.com/ipfs-storage (Private beta)
