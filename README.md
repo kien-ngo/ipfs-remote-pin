@@ -30,3 +30,4 @@
 - [ ] Myraah.com - No option to pin using CID
 - [ ] Multichain.storage - No option to pin using CID
 - [ ] Chainstack - https://chainstack.com/ipfs-storage (Private beta)
+- [ ] usecirrus.cloud - No option to pin using CID
