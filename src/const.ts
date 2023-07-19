@@ -6,10 +6,23 @@ type TPinningService = {
   docsUrl: string;
   note: string;
   discontinued: boolean; // Whether the service is still running or not
-  ready: boolean; // Whether the service is supported by this app or not
+
+  /**
+   *  Whether the service is supported by this app or not
+   * If set to `true`, the service will show up in the dropdown list
+   * @default false
+   */
+  ready: boolean;
   apiEndpoint: string;
   keyName: string; // key as in "key-value" for localStorage
-  psaCompliant: boolean; // Whether the service's APIs are fully compliant with the IPFS PSA requirements
+
+  /**
+   * Whether the service's APIs are fully compliant with the IPFS PSA requirements
+   * The app's interface will follow the PSA format
+   * If a service's pinning APIs aren't PSA compliant, we will create a custom API route
+   * for that service. An example would be: Infura and Spheron
+   */
+  psaCompliant: boolean;
   inputLabel: string;
   inputPlaceholder?: string;
   supportedActions: (typeof ACTIONS)[number]["id"][]; // Additional actions supported by the APIs - should not include "pin"
@@ -42,7 +55,7 @@ export const PINNING_SERVICES: TPinningService[] = [
     keyName: "filebaseAccessToken",
     psaCompliant: true,
     inputLabel: "Filebase Access Token",
-    supportedActions: [],
+    supportedActions: ["list", "get_pin"],
   },
   {
     name: "NFT.Storage",
@@ -56,7 +69,7 @@ export const PINNING_SERVICES: TPinningService[] = [
     psaCompliant: true,
     inputLabel: "NFT.Storage API Key",
     inputPlaceholder: "eyJhbGciOi...",
-    supportedActions: [],
+    supportedActions: ["list", "get_pin"],
   },
   {
     name: "4everland.org",
@@ -70,7 +83,7 @@ export const PINNING_SERVICES: TPinningService[] = [
     keyName: "4verlandAccessToken",
     psaCompliant: true,
     inputLabel: "4everland's Access Token",
-    supportedActions: [],
+    supportedActions: ["list", "get_pin"],
   },
   {
     name: "Estuary.tech",
@@ -83,7 +96,7 @@ export const PINNING_SERVICES: TPinningService[] = [
     keyName: "estuaryAccessToken",
     psaCompliant: true,
     inputLabel: "Estuary's API Key",
-    supportedActions: [],
+    supportedActions: ["list", "get_pin"],
   },
   {
     name: "Web3.storage",
@@ -97,7 +110,7 @@ export const PINNING_SERVICES: TPinningService[] = [
     psaCompliant: true,
     inputLabel: "Web3.Storage API Token",
     inputPlaceholder: "eyJhbGciOi...",
-    supportedActions: [],
+    supportedActions: ["list", "get_pin"],
   },
   {
     name: "Infura.io",
@@ -138,7 +151,7 @@ export const PINNING_SERVICES: TPinningService[] = [
     keyName: "chainsafeApiKey",
     psaCompliant: true,
     inputLabel: "Chainsafe API Key",
-    supportedActions: [],
+    supportedActions: ["list", "get_pin"],
   },
   {
     name: "Pinata.cloud",
@@ -152,7 +165,7 @@ export const PINNING_SERVICES: TPinningService[] = [
     psaCompliant: true,
     inputLabel: "Pinata JWT",
     inputPlaceholder: "eyJhbGciOi...",
-    supportedActions: [],
+    supportedActions: ["list", "get_pin"],
   },
   {
     name: "Crust.network",
@@ -165,7 +178,7 @@ export const PINNING_SERVICES: TPinningService[] = [
     keyName: "crustAccessToken",
     psaCompliant: true,
     inputLabel: "Crust Access Token",
-    supportedActions: [],
+    supportedActions: ["list", "get_pin"],
   },
   {
     name: "Eternum.io",

@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 const ActionContainer = dynamic(() => import("./ActionContainer"), {
   ssr: false,
 });
+import { FaGithub, FaTwitter } from "react-icons/fa";
 
 export default function ServiceProvider() {
   const [selectedIndex, setSelectedIndex] = useState<number>(-1);
@@ -16,10 +17,18 @@ export default function ServiceProvider() {
       );
   return (
     <>
-      <div className="max-w-md mx-auto px-1 text-3xl mt-6 text-center lg:w-[700px] md:w-[700px] text-white">
+      <div className="mx-auto px-1 text-3xl mt-6 text-center lg:min-w-[700px] md:w-[700px] text-white">
         One single interface for pinning CIDs to remote pinning services
       </div>
-      <div className="max-w-md mx-auto my-4 p-4 bg-white rounded shadow lg:w-[700px] md:w-[700px]">
+      <div className="mx-auto flex flex-row justify-center gap-4 mt-4">
+        <a href="https://github.com/kien-ngo/ipfs-remote-pin" target="_blank">
+          <FaGithub size={50} />
+        </a>
+        <a href="https://twitter.com/kienngo_" target="_blank">
+          <FaTwitter size={50} />
+        </a>
+      </div>
+      <div className="mx-auto my-4 p-4 bg-white rounded shadow lg:min-w-[700px] md:w-[700px]">
         <label htmlFor="pinningService" className="block font-semibold mb-1">
           Select Pinning Service
         </label>

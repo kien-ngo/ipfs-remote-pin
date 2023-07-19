@@ -3,6 +3,8 @@ import { PINNING_SERVICES } from "@/const";
 import { ACTIONS, TAction } from "./actions";
 import PinAction from "./PinAction";
 import UnPinAction from "./UnPinAction";
+import ListPinAction from "./ListPinAction";
+import GetPinAction from "./GetPinAction";
 
 export default function ActionContainer({
   service,
@@ -27,6 +29,24 @@ export default function ActionContainer({
     ),
     unpin: service.supportedActions.includes("unpin") ? (
       <UnPinAction
+        apiEndpoint={service.apiEndpoint}
+        accessToken={accessToken}
+        setApiResponse={setApiResponse}
+      />
+    ) : (
+      <></>
+    ),
+    list: service.supportedActions.includes("list") ? (
+      <ListPinAction
+        apiEndpoint={service.apiEndpoint}
+        accessToken={accessToken}
+        setApiResponse={setApiResponse}
+      />
+    ) : (
+      <></>
+    ),
+    get_pin: service.supportedActions.includes("get_pin") ? (
+      <GetPinAction
         apiEndpoint={service.apiEndpoint}
         accessToken={accessToken}
         setApiResponse={setApiResponse}
@@ -100,17 +120,19 @@ export default function ActionContainer({
           <br />
           <div className="flex flex-row gap-2 flex-wrap mb-4">
             {actions.map((item, index) => (
-              <button
-                onClick={() => setSelectedActionIndex(index)}
-                className={`${
-                  selectedActionIndex === index
-                    ? "bg-blue-500 border-2 border-gray-600"
-                    : "bg-gray-400 text-white hover:border-2 hover:border-gray-600"
-                } rounded-lg px-3`}
-                key={item.id}
-              >
-                {item.label}
-              </button>
+              <div className="tooltip" data-tip={item.tooltip}>
+                <button
+                  onClick={() => setSelectedActionIndex(index)}
+                  className={`${
+                    selectedActionIndex === index
+                      ? "bg-blue-500 border-gray-600"
+                      : "bg-gray-400 text-white hover:border-gray-600"
+                  } rounded-lg px-3 border-2`}
+                  key={item.id}
+                >
+                  {item.label}
+                </button>
+              </div>
             ))}
           </div>
           <Action />
@@ -134,8 +156,8 @@ export default function ActionContainer({
                 </button>
               </span>
             </summary>
-            <pre className="bg-gray-100 p-4 overflow-auto">
-              {JSON.stringify(JSON.parse(apiResponse), null, 2)}
+            <pre className="bg-gray-100 p-4 overflow-auto max-h-[800px]">
+              {JSON.stringify(apiResponse, null, 2)}
             </pre>
           </details>
         </>
