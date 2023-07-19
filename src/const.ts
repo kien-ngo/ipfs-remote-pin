@@ -6,10 +6,23 @@ type TPinningService = {
   docsUrl: string;
   note: string;
   discontinued: boolean; // Whether the service is still running or not
-  ready: boolean; // Whether the service is supported by this app or not
+
+  /**
+   *  Whether the service is supported by this app or not
+   * If set to `true`, the service will show up in the dropdown list
+   * @default false
+   */
+  ready: boolean;
   apiEndpoint: string;
   keyName: string; // key as in "key-value" for localStorage
-  psaCompliant: boolean; // Whether the service's APIs are fully compliant with the IPFS PSA requirements
+
+  /**
+   * Whether the service's APIs are fully compliant with the IPFS PSA requirements
+   * The app's interface will follow the PSA format
+   * If a service's pinning APIs aren't PSA compliant, we will create a custom API route
+   * for that service. An example would be: Infura and Spheron
+   */
+  psaCompliant: boolean;
   inputLabel: string;
   inputPlaceholder?: string;
   supportedActions: (typeof ACTIONS)[number]["id"][]; // Additional actions supported by the APIs - should not include "pin"

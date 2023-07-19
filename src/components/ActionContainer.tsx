@@ -110,17 +110,19 @@ export default function ActionContainer({
           <br />
           <div className="flex flex-row gap-2 flex-wrap mb-4">
             {actions.map((item, index) => (
-              <button
-                onClick={() => setSelectedActionIndex(index)}
-                className={`${
-                  selectedActionIndex === index
-                    ? "bg-blue-500 border-2 border-gray-600"
-                    : "bg-gray-400 text-white hover:border-2 hover:border-gray-600"
-                } rounded-lg px-3`}
-                key={item.id}
-              >
-                {item.label}
-              </button>
+              <div className="tooltip" data-tip={item.tooltip}>
+                <button
+                  onClick={() => setSelectedActionIndex(index)}
+                  className={`${
+                    selectedActionIndex === index
+                      ? "bg-blue-500 border-gray-600"
+                      : "bg-gray-400 text-white hover:border-gray-600"
+                  } rounded-lg px-3 border-2`}
+                  key={item.id}
+                >
+                  {item.label}
+                </button>
+              </div>
             ))}
           </div>
           <Action />
