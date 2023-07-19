@@ -4,6 +4,7 @@ import { ACTIONS, TAction } from "./actions";
 import PinAction from "./PinAction";
 import UnPinAction from "./UnPinAction";
 import ListPinAction from "./ListPinAction";
+import GetPinAction from "./GetPinAction";
 
 export default function ActionContainer({
   service,
@@ -37,6 +38,15 @@ export default function ActionContainer({
     ),
     list: service.supportedActions.includes("list") ? (
       <ListPinAction
+        apiEndpoint={service.apiEndpoint}
+        accessToken={accessToken}
+        setApiResponse={setApiResponse}
+      />
+    ) : (
+      <></>
+    ),
+    get_pin: service.supportedActions.includes("get_pin") ? (
+      <GetPinAction
         apiEndpoint={service.apiEndpoint}
         accessToken={accessToken}
         setApiResponse={setApiResponse}

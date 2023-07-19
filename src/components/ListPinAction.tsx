@@ -15,11 +15,7 @@ export default function ListPinAction({
     setApiResponse(`{ "message": "Making request..." }`);
     const response = await fetch(`${apiEndpoint}/pins`, {
       method: "GET",
-      headers: {
-        // Accept: "application/json",
-        // "Content-Type": "application/json",
-        Authorization: `Bearer ${accessToken}`,
-      },
+      headers: { Authorization: `Bearer ${accessToken}` },
     }).then((r) => r.json());
     console.log(response);
     setApiResponse(response);

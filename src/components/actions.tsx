@@ -16,6 +16,11 @@ export const ACTIONS: TAction[] = [
     tooltip: "List all pin objects",
   },
   {
+    label: "Get pin",
+    id: "get_pin",
+    tooltip: "Get a pin object",
+  },
+  {
     label: "Unpin",
     id: "unpin",
     tooltip: "Remove a pin object",
