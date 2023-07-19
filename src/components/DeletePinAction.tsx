@@ -6,20 +6,20 @@ type TProps = {
   setApiResponse: Dispatch<SetStateAction<string>>;
 };
 
-export default function GetPinAction({
+export default function DeletePinAction({
   apiEndpoint,
   accessToken,
   setApiResponse,
 }: TProps) {
   const requestIdRef = useRef<HTMLInputElement>(null);
-  const getPinObject = async () => {
+  const deletePinObject = async () => {
     if (!requestIdRef.current) return;
     const requestId = requestIdRef.current.value;
     setApiResponse(`{ "message": "Making request..." }`);
     const response = await fetch(`${apiEndpoint}/pins/${requestId}`, {
-      method: "GET",
+      method: "DELETE",
       headers: { Authorization: `Bearer ${accessToken}` },
-    }).then((r) => r.json());
+    }).then((r) => r.text());
     setApiResponse(response);
   };
   return (
@@ -38,10 +38,10 @@ export default function GetPinAction({
       </div>
 
       <button
-        onClick={getPinObject}
+        onClick={deletePinObject}
         className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
       >
-        Get pin object
+        Delete pin object
       </button>
     </>
   );

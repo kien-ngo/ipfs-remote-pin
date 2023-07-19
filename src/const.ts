@@ -41,7 +41,7 @@ export const PINNING_SERVICES: TPinningService[] = [
     psaCompliant: false,
     inputLabel: "Gateway3 Access & Secret key",
     inputPlaceholder: "<ACCESS_KEY>:<SECRET_KEY>",
-    supportedActions: ["unpin"],
+    supportedActions: [],
   },
   {
     name: "Filebase.com",
@@ -55,7 +55,7 @@ export const PINNING_SERVICES: TPinningService[] = [
     keyName: "filebaseAccessToken",
     psaCompliant: true,
     inputLabel: "Filebase Access Token",
-    supportedActions: ["list", "get_pin"],
+    supportedActions: ["list", "get_pin", "remove_pin"],
   },
   {
     name: "NFT.Storage",
@@ -69,7 +69,7 @@ export const PINNING_SERVICES: TPinningService[] = [
     psaCompliant: true,
     inputLabel: "NFT.Storage API Key",
     inputPlaceholder: "eyJhbGciOi...",
-    supportedActions: ["list", "get_pin"],
+    supportedActions: ["list", "get_pin", "remove_pin"],
   },
   {
     name: "4everland.org",
@@ -83,7 +83,7 @@ export const PINNING_SERVICES: TPinningService[] = [
     keyName: "4verlandAccessToken",
     psaCompliant: true,
     inputLabel: "4everland's Access Token",
-    supportedActions: ["list", "get_pin"],
+    supportedActions: ["list", "get_pin", "remove_pin"],
   },
   {
     name: "Estuary.tech",
@@ -96,7 +96,7 @@ export const PINNING_SERVICES: TPinningService[] = [
     keyName: "estuaryAccessToken",
     psaCompliant: true,
     inputLabel: "Estuary's API Key",
-    supportedActions: ["list", "get_pin"],
+    supportedActions: ["list", "get_pin", "remove_pin"],
   },
   {
     name: "Web3.storage",
@@ -110,7 +110,7 @@ export const PINNING_SERVICES: TPinningService[] = [
     psaCompliant: true,
     inputLabel: "Web3.Storage API Token",
     inputPlaceholder: "eyJhbGciOi...",
-    supportedActions: ["list", "get_pin"],
+    supportedActions: ["list", "get_pin", "remove_pin"],
   },
   {
     name: "Infura.io",
@@ -151,7 +151,7 @@ export const PINNING_SERVICES: TPinningService[] = [
     keyName: "chainsafeApiKey",
     psaCompliant: true,
     inputLabel: "Chainsafe API Key",
-    supportedActions: ["list", "get_pin"],
+    supportedActions: ["list", "get_pin", "remove_pin"],
   },
   {
     name: "Pinata.cloud",
@@ -165,7 +165,7 @@ export const PINNING_SERVICES: TPinningService[] = [
     psaCompliant: true,
     inputLabel: "Pinata JWT",
     inputPlaceholder: "eyJhbGciOi...",
-    supportedActions: ["list", "get_pin"],
+    supportedActions: ["list", "get_pin", "remove_pin"],
   },
   {
     name: "Crust.network",
@@ -178,7 +178,7 @@ export const PINNING_SERVICES: TPinningService[] = [
     keyName: "crustAccessToken",
     psaCompliant: true,
     inputLabel: "Crust Access Token",
-    supportedActions: ["list", "get_pin"],
+    supportedActions: ["list", "get_pin", "remove_pin"],
   },
   {
     name: "Eternum.io",

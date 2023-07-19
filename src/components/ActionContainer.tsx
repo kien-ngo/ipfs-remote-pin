@@ -2,9 +2,9 @@ import { ReactNode, useEffect, useState } from "react";
 import { PINNING_SERVICES } from "@/const";
 import { ACTIONS, TAction } from "./actions";
 import PinAction from "./PinAction";
-import UnPinAction from "./UnPinAction";
 import ListPinAction from "./ListPinAction";
 import GetPinAction from "./GetPinAction";
+import DeletePinAction from "./DeletePinAction";
 
 export default function ActionContainer({
   service,
@@ -27,8 +27,8 @@ export default function ActionContainer({
         setApiResponse={setApiResponse}
       />
     ),
-    unpin: service.supportedActions.includes("unpin") ? (
-      <UnPinAction
+    remove_pin: service.supportedActions.includes("remove_pin") ? (
+      <DeletePinAction
         apiEndpoint={service.apiEndpoint}
         accessToken={accessToken}
         setApiResponse={setApiResponse}
@@ -120,7 +120,7 @@ export default function ActionContainer({
           <br />
           <div className="flex flex-row gap-2 flex-wrap mb-4">
             {actions.map((item, index) => (
-              <div className="tooltip" data-tip={item.tooltip}>
+              <div className="tooltip" data-tip={item.tooltip} key={item.id}>
                 <button
                   onClick={() => setSelectedActionIndex(index)}
                   className={`${
@@ -128,7 +128,6 @@ export default function ActionContainer({
                       ? "bg-blue-500 border-gray-600"
                       : "bg-gray-400 text-white hover:border-gray-600"
                   } rounded-lg px-3 border-2`}
-                  key={item.id}
                 >
                   {item.label}
                 </button>
