@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
+const BASE_URL = "https://gw3.io";
+
 export async function POST(req: NextRequest) {
   const authHeader = req.headers.get("authorization");
   if (!authHeader)
@@ -22,7 +24,7 @@ export async function POST(req: NextRequest) {
   const { cid, name } = await req.json();
   const now = new Date().getTime();
   const response = await fetch(
-    `https://gw3.io/api/v0/pin/add?arg=${cid}&ts=${now}`,
+    `${BASE_URL}/api/v0/pin/add?arg=${cid}&ts=${now}`,
     {
       method: "POST",
       headers: {
@@ -32,4 +34,11 @@ export async function POST(req: NextRequest) {
     }
   ).then((r) => r.json());
   return NextResponse.json(response);
+}
+
+export async function DELETE(req: NextRequest) {
+  return NextResponse.json({
+    success: false,
+    message: "Test delete request",
+  });
 }

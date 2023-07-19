@@ -1,10 +1,19 @@
 import { PINNING_SERVICES } from "@/const";
 import { useState } from "react";
-import RemovePinProvider from "./RemotePinContext";
+import { ACTIONS, TAction } from "./actions";
+import dynamic from "next/dynamic";
+const ActionContainer = dynamic(() => import("./ActionContainer"), {
+  ssr: false,
+});
 
 export default function ServiceProvider() {
   const [selectedIndex, setSelectedIndex] = useState<number>(-1);
   const selectedService = PINNING_SERVICES[selectedIndex];
+  const supportedActions: TAction[] = !selectedService
+    ? []
+    : ACTIONS.filter((item) =>
+        selectedService.supportedActions.includes(item.id)
+      );
   return (
     <>
       <div className="max-w-md mx-auto px-1 text-3xl mt-6 text-center lg:w-[700px] md:w-[700px] text-white">
@@ -36,6 +45,7 @@ export default function ServiceProvider() {
         </select>
         {selectedService && (
           <>
+            <hr className="border-t border-t-gray-300 mt-4" />
             <div className="mb-4 mt-2">
               <h2 className="text-xl font-semibold mb-2 ">
                 {selectedService.name}
@@ -73,7 +83,10 @@ export default function ServiceProvider() {
                 </div>
               )}
             </div>
-            <RemovePinProvider service={selectedService}></RemovePinProvider>
+            <ActionContainer
+              service={selectedService}
+              supportedActions={supportedActions}
+            ></ActionContainer>
           </>
         )}
       </div>

@@ -1,3 +1,5 @@
+import { ACTIONS } from "./components/actions";
+
 type TPinningService = {
   name: string;
   website: string;
@@ -10,6 +12,7 @@ type TPinningService = {
   psaCompliant: boolean; // Whether the service's APIs are fully compliant with the IPFS PSA requirements
   inputLabel: string;
   inputPlaceholder?: string;
+  supportedActions: (typeof ACTIONS)[number]["id"][]; // Additional actions supported by the APIs - should not include "pin"
 };
 
 export const PINNING_SERVICES: TPinningService[] = [
@@ -25,6 +28,7 @@ export const PINNING_SERVICES: TPinningService[] = [
     psaCompliant: false,
     inputLabel: "Gateway3 Access & Secret key",
     inputPlaceholder: "<ACCESS_KEY>:<SECRET_KEY>",
+    supportedActions: ["unpin"],
   },
   {
     name: "Filebase.com",
@@ -38,6 +42,7 @@ export const PINNING_SERVICES: TPinningService[] = [
     keyName: "filebaseAccessToken",
     psaCompliant: true,
     inputLabel: "Filebase Access Token",
+    supportedActions: [],
   },
   {
     name: "NFT.Storage",
@@ -51,6 +56,7 @@ export const PINNING_SERVICES: TPinningService[] = [
     psaCompliant: true,
     inputLabel: "NFT.Storage API Key",
     inputPlaceholder: "eyJhbGciOi...",
+    supportedActions: [],
   },
   {
     name: "4everland.org",
@@ -64,6 +70,7 @@ export const PINNING_SERVICES: TPinningService[] = [
     keyName: "4verlandAccessToken",
     psaCompliant: true,
     inputLabel: "4everland's Access Token",
+    supportedActions: [],
   },
   {
     name: "Estuary.tech",
@@ -76,6 +83,7 @@ export const PINNING_SERVICES: TPinningService[] = [
     keyName: "estuaryAccessToken",
     psaCompliant: true,
     inputLabel: "Estuary's API Key",
+    supportedActions: [],
   },
   {
     name: "Web3.storage",
@@ -89,6 +97,7 @@ export const PINNING_SERVICES: TPinningService[] = [
     psaCompliant: true,
     inputLabel: "Web3.Storage API Token",
     inputPlaceholder: "eyJhbGciOi...",
+    supportedActions: [],
   },
   {
     name: "Infura.io",
@@ -102,6 +111,7 @@ export const PINNING_SERVICES: TPinningService[] = [
     psaCompliant: false,
     inputLabel: "Infura project ID & secret",
     inputPlaceholder: "<PROJECT_ID>:<PROJECT_SECRET>",
+    supportedActions: [],
   },
   {
     name: "Dolpin.io",
@@ -115,6 +125,7 @@ export const PINNING_SERVICES: TPinningService[] = [
     psaCompliant: false,
     inputLabel: "Dolpin Access Token",
     inputPlaceholder: "eyJhbGciOi...",
+    supportedActions: [],
   },
   {
     name: "Chainsafe.io Storage",
@@ -127,6 +138,7 @@ export const PINNING_SERVICES: TPinningService[] = [
     keyName: "chainsafeApiKey",
     psaCompliant: true,
     inputLabel: "Chainsafe API Key",
+    supportedActions: [],
   },
   {
     name: "Pinata.cloud",
@@ -140,6 +152,7 @@ export const PINNING_SERVICES: TPinningService[] = [
     psaCompliant: true,
     inputLabel: "Pinata JWT",
     inputPlaceholder: "eyJhbGciOi...",
+    supportedActions: [],
   },
   {
     name: "Crust.network",
@@ -152,6 +165,7 @@ export const PINNING_SERVICES: TPinningService[] = [
     keyName: "crustAccessToken",
     psaCompliant: true,
     inputLabel: "Crust Access Token",
+    supportedActions: [],
   },
   {
     name: "Eternum.io",
@@ -164,6 +178,7 @@ export const PINNING_SERVICES: TPinningService[] = [
     keyName: "eternumAccessToken",
     psaCompliant: false,
     inputLabel: "Eternum Access Token",
+    supportedActions: [],
   },
   {
     name: "Blockfrost.io",
@@ -177,6 +192,7 @@ export const PINNING_SERVICES: TPinningService[] = [
     psaCompliant: false,
     inputLabel: "Blockfrost Project ID",
     inputPlaceholder: "ipfs...",
+    supportedActions: [],
   },
   {
     name: "Spheron.network",
@@ -190,6 +206,7 @@ export const PINNING_SERVICES: TPinningService[] = [
     psaCompliant: false,
     inputLabel: "Spheron Access Token",
     inputPlaceholder: "eyJhbGciOi...",
+    supportedActions: [],
   },
   {
     name: "Scaleway.com",
@@ -203,5 +220,6 @@ export const PINNING_SERVICES: TPinningService[] = [
     psaCompliant: false,
     inputLabel: "Scaleway Auth Token",
     inputPlaceholder: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    supportedActions: [],
   },
 ];
