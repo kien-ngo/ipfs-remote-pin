@@ -25,6 +25,5 @@ export async function POST(req: NextRequest) {
       body: JSON.stringify({ cid, name }),
     }
   ).then((r) => r.json());
-  console.log(response);
   return NextResponse.json(response);
 }

@@ -17,6 +17,5 @@ export async function POST(req: NextRequest) {
       body: JSON.stringify({ hash: cid, name, tag: "" }),
     },
   }).then((r) => r.json());
-  console.log(response);
   return NextResponse.json(response);
 }

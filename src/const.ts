@@ -3,18 +3,29 @@ type TPinningService = {
   website: string;
   docsUrl: string;
   note: string;
-  discontinued: boolean; // Whether a business is still running or not
-  supportsMultiplePins: boolean; // Some services can take in an array of CIDs
-  pathname?: string;
+  discontinued: boolean; // Whether the service is still running or not
   ready: boolean; // Whether the service is supported by this app or not
   apiEndpoint: string;
   keyName: string; // key as in "key-value" for localStorage
-  psaCompliant: boolean; // Wheher the service's APIs are fully compliant with the IPFS PSA requirements
+  psaCompliant: boolean; // Whether the service's APIs are fully compliant with the IPFS PSA requirements
   inputLabel: string;
   inputPlaceholder?: string;
 };
 
 export const PINNING_SERVICES: TPinningService[] = [
+  {
+    name: "Gateway3",
+    website: "https://gw3.io",
+    docsUrl: "https://doc.gw3.io/api/gateway/pinning.html",
+    note: "As of June 5th 2023, the pin api only accept cid and not its associate name/label",
+    discontinued: false,
+    ready: true,
+    apiEndpoint: "/api/gw3",
+    keyName: "gw3AccessToken",
+    psaCompliant: false,
+    inputLabel: "Gateway3 Access & Secret key",
+    inputPlaceholder: "<ACCESS_KEY>:<SECRET_KEY>",
+  },
   {
     name: "Filebase.com",
     website: "https://filebase.com",
@@ -22,7 +33,6 @@ export const PINNING_SERVICES: TPinningService[] = [
       "https://docs.filebase.com/api-documentation/ipfs-pinning-service-api",
     note: "Pinning APIs are available to paid customers",
     discontinued: false,
-    supportsMultiplePins: false,
     ready: true,
     apiEndpoint: "https://api.filebase.io/v1/ipfs",
     keyName: "filebaseAccessToken",
@@ -35,7 +45,6 @@ export const PINNING_SERVICES: TPinningService[] = [
     docsUrl: "https://nft.storage/docs/how-to/pinning-service",
     note: "",
     discontinued: false,
-    supportsMultiplePins: false,
     ready: true,
     apiEndpoint: "https://api.nft.storage",
     keyName: "nftStorageAccessToken",
@@ -50,7 +59,6 @@ export const PINNING_SERVICES: TPinningService[] = [
       "https://docs.4everland.org/storage/4ever-pin/pinning-services-api",
     note: "",
     discontinued: false,
-    supportsMultiplePins: true,
     ready: true,
     apiEndpoint: "https://api.4everland.dev",
     keyName: "4verlandAccessToken",
@@ -63,7 +71,6 @@ export const PINNING_SERVICES: TPinningService[] = [
     docsUrl: "https://docs.estuary.tech/api/add-and-pin-object",
     note: "",
     discontinued: false,
-    supportsMultiplePins: false,
     ready: true,
     apiEndpoint: "https://api.estuary.tech/pinning",
     keyName: "estuaryAccessToken",
@@ -76,7 +83,6 @@ export const PINNING_SERVICES: TPinningService[] = [
     docsUrl: "https://web3.storage/docs/how-tos/pinning-services-api/",
     note: "web3.storage's Pinning Service API is not to be used for ongoing production traffic, but rather for one-time migrations",
     discontinued: false,
-    supportsMultiplePins: false,
     ready: true,
     apiEndpoint: "https://api.web3.storage",
     keyName: "web3StorageAccessToken",
@@ -90,7 +96,6 @@ export const PINNING_SERVICES: TPinningService[] = [
     docsUrl: "https://docs.infura.io/infura/networks/ipfs/http-api-methods",
     note: "As of June 5th 2023, the pin api only accept cid and not its associate name/label",
     discontinued: false,
-    supportsMultiplePins: false,
     ready: true,
     apiEndpoint: "/api/infura",
     keyName: "infuraAccessToken",
@@ -104,12 +109,11 @@ export const PINNING_SERVICES: TPinningService[] = [
     docsUrl: "https://docs.dolpin.io/pinning-api",
     note: "",
     discontinued: false,
-    supportsMultiplePins: false,
     ready: true,
     apiEndpoint: "/api/dolpin",
     keyName: "dolpinAccessToken",
     psaCompliant: false,
-    inputLabel: "Dolpin Acess Token",
+    inputLabel: "Dolpin Access Token",
     inputPlaceholder: "eyJhbGciOi...",
   },
   {
@@ -118,7 +122,6 @@ export const PINNING_SERVICES: TPinningService[] = [
     docsUrl: "https://docs.storage.chainsafe.io",
     note: "",
     discontinued: false,
-    supportsMultiplePins: false,
     ready: false,
     apiEndpoint: "https://api.chainsafe.io/api/v1",
     keyName: "chainsafeApiKey",
@@ -131,7 +134,6 @@ export const PINNING_SERVICES: TPinningService[] = [
     docsUrl: "https://docs.pinata.cloud/pinata-api/pinning/pin-by-cid",
     note: "",
     discontinued: false,
-    supportsMultiplePins: false,
     ready: true,
     apiEndpoint: "https://api.pinata.cloud/psa",
     keyName: "pinataAccessToken",
@@ -145,7 +147,6 @@ export const PINNING_SERVICES: TPinningService[] = [
     docsUrl: "https://wiki.crust.network/docs/en/buildFileStoringWithGWDemo",
     note: "",
     discontinued: false,
-    supportsMultiplePins: false,
     ready: true,
     apiEndpoint: "https://pin.crustcode.com/psa",
     keyName: "crustAccessToken",
@@ -158,7 +159,6 @@ export const PINNING_SERVICES: TPinningService[] = [
     docsUrl: "https://www.eternum.io/help/api",
     note: "",
     discontinued: true,
-    supportsMultiplePins: false,
     ready: true,
     apiEndpoint: "/api/eternum",
     keyName: "eternumAccessToken",
@@ -171,7 +171,6 @@ export const PINNING_SERVICES: TPinningService[] = [
     docsUrl: "https://blockfrost.dev/docs/start-building/ipfs/",
     note: "",
     discontinued: false,
-    supportsMultiplePins: false,
     ready: true,
     apiEndpoint: "/api/blockfrost",
     keyName: "blockforstProjectId",
@@ -185,7 +184,6 @@ export const PINNING_SERVICES: TPinningService[] = [
     docsUrl: "https://docs.spheron.network/sdk/storage",
     note: "",
     discontinued: false,
-    supportsMultiplePins: false,
     ready: true,
     apiEndpoint: "/api/spheron",
     keyName: "spheronAccessToken",
@@ -199,7 +197,6 @@ export const PINNING_SERVICES: TPinningService[] = [
     docsUrl: "https://scaleway.com/en/docs/labs/ipfs/api-cli/ipfs-operations",
     note: "",
     discontinued: false,
-    supportsMultiplePins: false,
     ready: true,
     apiEndpoint: "/api/scaleway",
     keyName: "scalewayAuthToken",

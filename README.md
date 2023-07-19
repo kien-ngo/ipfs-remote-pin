@@ -6,6 +6,7 @@
 
 # Supported Services
 - [x] Filebase.com
+- [x] Gw3.io
 - [x] NFT.Storage
 - [x] 4everland.org
 - [x] Estuary.tech
