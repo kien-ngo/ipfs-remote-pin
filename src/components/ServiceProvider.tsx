@@ -16,10 +16,10 @@ export default function ServiceProvider() {
       );
   return (
     <>
-      <div className="max-w-md mx-auto px-1 text-3xl mt-6 text-center lg:w-[700px] md:w-[700px] text-white">
+      <div className="mx-auto px-1 text-3xl mt-6 text-center lg:min-w-[700px] md:w-[700px] text-white">
         One single interface for pinning CIDs to remote pinning services
       </div>
-      <div className="max-w-md mx-auto my-4 p-4 bg-white rounded shadow lg:w-[700px] md:w-[700px]">
+      <div className="mx-auto my-4 p-4 bg-white rounded shadow lg:min-w-[700px] md:w-[700px]">
         <label htmlFor="pinningService" className="block font-semibold mb-1">
           Select Pinning Service
         </label>

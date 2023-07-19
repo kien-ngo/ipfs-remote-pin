@@ -9,6 +9,10 @@ export const ACTIONS: TAction[] = [
     id: "pin",
   },
   {
+    label: "List",
+    id: "list",
+  },
+  {
     label: "Unpin",
     id: "unpin",
   },

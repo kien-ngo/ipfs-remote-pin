@@ -42,7 +42,7 @@ export const PINNING_SERVICES: TPinningService[] = [
     keyName: "filebaseAccessToken",
     psaCompliant: true,
     inputLabel: "Filebase Access Token",
-    supportedActions: [],
+    supportedActions: ["list"],
   },
   {
     name: "NFT.Storage",
@@ -56,7 +56,7 @@ export const PINNING_SERVICES: TPinningService[] = [
     psaCompliant: true,
     inputLabel: "NFT.Storage API Key",
     inputPlaceholder: "eyJhbGciOi...",
-    supportedActions: [],
+    supportedActions: ["list"],
   },
   {
     name: "4everland.org",
@@ -70,7 +70,7 @@ export const PINNING_SERVICES: TPinningService[] = [
     keyName: "4verlandAccessToken",
     psaCompliant: true,
     inputLabel: "4everland's Access Token",
-    supportedActions: [],
+    supportedActions: ["list"],
   },
   {
     name: "Estuary.tech",
@@ -83,7 +83,7 @@ export const PINNING_SERVICES: TPinningService[] = [
     keyName: "estuaryAccessToken",
     psaCompliant: true,
     inputLabel: "Estuary's API Key",
-    supportedActions: [],
+    supportedActions: ["list"],
   },
   {
     name: "Web3.storage",
@@ -97,7 +97,7 @@ export const PINNING_SERVICES: TPinningService[] = [
     psaCompliant: true,
     inputLabel: "Web3.Storage API Token",
     inputPlaceholder: "eyJhbGciOi...",
-    supportedActions: [],
+    supportedActions: ["list"],
   },
   {
     name: "Infura.io",
@@ -138,7 +138,7 @@ export const PINNING_SERVICES: TPinningService[] = [
     keyName: "chainsafeApiKey",
     psaCompliant: true,
     inputLabel: "Chainsafe API Key",
-    supportedActions: [],
+    supportedActions: ["list"],
   },
   {
     name: "Pinata.cloud",
@@ -152,7 +152,7 @@ export const PINNING_SERVICES: TPinningService[] = [
     psaCompliant: true,
     inputLabel: "Pinata JWT",
     inputPlaceholder: "eyJhbGciOi...",
-    supportedActions: [],
+    supportedActions: ["list"],
   },
   {
     name: "Crust.network",
@@ -165,7 +165,7 @@ export const PINNING_SERVICES: TPinningService[] = [
     keyName: "crustAccessToken",
     psaCompliant: true,
     inputLabel: "Crust Access Token",
-    supportedActions: [],
+    supportedActions: ["list"],
   },
   {
     name: "Eternum.io",

@@ -18,7 +18,7 @@ export default function PinAction({
     const cid = cidRef.current.value;
     if (!labelRef.current) return;
     const name = labelRef.current.value ?? "";
-    setApiResponse(`{ message: "Making request..." }`);
+    setApiResponse(`{ "message": "Making request..." }`);
     const response = await fetch(`${apiEndpoint}/pins`, {
       method: "POST",
       headers: {
