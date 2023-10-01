@@ -33,3 +33,4 @@
 - [ ] Chainstack - https://chainstack.com/ipfs-storage (Private beta)
 - [ ] usecirrus.cloud - No option to pin using CID
 - [ ] Quicknode IPFS - They don't have a free tier yet & i'm not willing to subscribe
+- [ ] thirdweb
