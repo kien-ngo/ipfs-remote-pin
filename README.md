@@ -1,5 +1,3 @@
-# One single interface for pinning your CIDs to multiple IPFS Pinning Services
-
 ![image](https://github.com/kienngo98/ipfs-remote-pin/assets/26052673/d672517b-874c-479b-8401-cc17ee0a4b3d)
 
 
@@ -34,3 +32,4 @@
 - [ ] usecirrus.cloud - No option to pin using CID
 - [ ] Quicknode IPFS - They don't have a free tier yet & i'm not willing to subscribe
 - [ ] thirdweb
+- [ ] delta.storage
