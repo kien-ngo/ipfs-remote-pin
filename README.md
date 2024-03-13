@@ -33,3 +33,4 @@
 - [ ] Quicknode IPFS - They don't have a free tier yet & i'm not willing to subscribe
 - [ ] thirdweb
 - [ ] delta.storage
+- [ ] AIOZ network - Coming soon (https://aioz.network/w3ipfs)
