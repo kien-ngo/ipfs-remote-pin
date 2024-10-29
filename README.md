@@ -6,7 +6,7 @@
 - [x] Gw3.io
 - [x] NFT.Storage
 - [x] 4everland.org
-- [x] Estuary.tech
+- [x] Estuary.tech (No longer available)
 - [x] Web3.Storage
 - [x] Infura.io
 - [x] Pinata
@@ -34,3 +34,4 @@
 - [ ] thirdweb
 - [ ] delta.storage
 - [ ] AIOZ network - Coming soon (https://aioz.network/w3ipfs)
+- [ ] Functionland (fx.land)
