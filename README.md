@@ -35,3 +35,4 @@
 - [ ] delta.storage
 - [ ] AIOZ network - Coming soon (https://aioz.network/w3ipfs)
 - [ ] Functionland (fx.land)
+- [ ] Decentapi.com (https://decentapi.com/#services)
